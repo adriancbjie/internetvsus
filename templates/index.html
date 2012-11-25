@@ -95,6 +95,7 @@
             		var randomX = (Math.random() * 10 * signX) +'deg';
             		var randomY = (Math.random() * 10 * signY) +'deg';
 				 	$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 4000);
+				 	count+=1;
 				});
 
 				$(el).mousemove(function(){
