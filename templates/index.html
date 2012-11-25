@@ -48,7 +48,7 @@
 		        $("#getscreenshot").click(function(d){
 		            d.preventDefault();
 		            $(".well").hide();
-		            alert("Your webpage is now being loaded within this site... Happy browsing! :)");
+		            alert("You are now being redirected...");
 		            $(this).prop("disabled",true);
 		            var c=$("#url").val();
 		            $("#content").append($("<img />").attr("src","http://html2canvas.hertzen.com/loading.gif").css("margin-top",40).css("margin-left",$(window).width()/2));
@@ -157,7 +157,11 @@
 		    <br/><input type=url id='url' size="35" value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
 		    <br/><br/><br/><br/> **Ensure that you have the latest version of chrome running** 
 		    <br/> ** Some websites might not work seamlessly **
-		    <br/> For best results, try: http://www.yahoo.com, http://forbes.com, http://macrumors.com 
+		    <br/> For best results, try: 
+		    <br/> 1) http://www.yahoo.com
+		    <br/> 2) http://forbes.com
+		    <br/> 3) http://macrumors.com
+		    <br/> 4) http://usc.edu 
 		    <br/> Website by: Adrian Cheng Bing Jie.
 		</form> 
 		<input id="disablejs" type="checkbox" checked="checked" hidden="true">
