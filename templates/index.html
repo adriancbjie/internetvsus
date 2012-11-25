@@ -50,7 +50,7 @@
 		        $("#getscreenshot").click(function(d){
 		            d.preventDefault();
 		            $(".well").hide();
-		            alert("Your webpage is now being loaded within this site. Continue browsing the web loaded in this page as you normally would in the browser.");
+		            alert("Your webpage is now being loaded within this site... Happy browsing! :)");
 		            $(this).prop("disabled",true);
 		            var c=$("#url").val();
 		            // $("#content").append($("<img />").attr("src","http://html2canvas.hertzen.com/loading.gif").css("margin-top",40));
@@ -114,7 +114,7 @@
 					 	break;
 					default:
 						break;
-					}
+					};
 
 					var signX = Math.random() < 0.5 ? -1 : 1;
             		var signY = Math.random() < 0.5 ? -1 : 1;
@@ -137,7 +137,7 @@
 	            		$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 5000);
 
 	            		if (count == 505) {
-	            			alert("Internet: ")
+	            			alert("Internet: ");
 	            		}
 	            	}
 	            	count += 1;
@@ -155,7 +155,9 @@
 	</head>
 	<body>
 		<form class="well form-search" style="text-align:center"> <label for=url>Enter a website url that you would like to browse:</label> 
-		    <input type=url id='url' value="http://www.forbes.com" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button> 
+		    <input type=url id='url' value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
+		    <br/> ** SOME WEBSITES MIGHT NOT WORK SEAMLESSLY **
+		    <br/> For best results, try: http://www.yahoo.com, http://forbes.com, http://macrumors.com 
 		</form> 
 		<!-- <label for="disablejs">Disable JavaScript (recommended, doesn't work well with the proxy)</label> -->
 		<input id="disablejs" type="checkbox" checked="checked" hidden="true">
