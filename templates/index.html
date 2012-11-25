@@ -3,8 +3,6 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="https://dl.dropbox.com/u/3179945/html2canvas.js"></script>
 		<script src="https://dl.dropbox.com/u/3179945/jquery.plugin.html2canvas.js"></script>
-
-		<!-- // <script src="http://code.jquery.com/jquery.min.js"></script>  -->
 		<script src="https://dl.dropbox.com/u/3179945/jquery.transit.js"></script>
 		<script type="text/javascript">
 		    var date=new Date();
@@ -53,7 +51,7 @@
 		            alert("Your webpage is now being loaded within this site... Happy browsing! :)");
 		            $(this).prop("disabled",true);
 		            var c=$("#url").val();
-		            // $("#content").append($("<img />").attr("src","http://html2canvas.hertzen.com/loading.gif").css("margin-top",40));
+		            $("#content").append($("<img />").attr("src","http://html2canvas.hertzen.com/loading.gif").css("margin-top",40).css("margin-left",$(window).width()/2));
 		            var f=document.createElement("a");
 		            f.href=c;
 		            $.ajax({
@@ -137,7 +135,7 @@
 	            		$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 5000);
 
 	            		if (count == 505) {
-	            			alert("Internet: ");
+	            			alert("Internet: You lose.");
 	            		}
 	            	}
 	            	count += 1;
@@ -155,11 +153,10 @@
 	</head>
 	<body>
 		<form class="well form-search" style="text-align:center"> <label for=url>Enter a website url that you would like to browse:</label> 
-		    <input type=url id='url' value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
-		    <br/> ** SOME WEBSITES MIGHT NOT WORK SEAMLESSLY **
+		    <br/><input type=url id='url' value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
+		    <br/><br/><br/><br/> ** SOME WEBSITES MIGHT NOT WORK SEAMLESSLY **
 		    <br/> For best results, try: http://www.yahoo.com, http://forbes.com, http://macrumors.com 
 		</form> 
-		<!-- <label for="disablejs">Disable JavaScript (recommended, doesn't work well with the proxy)</label> -->
 		<input id="disablejs" type="checkbox" checked="checked" hidden="true">
 		<br>
 		<div id='content' style="position:absolute"></div>
