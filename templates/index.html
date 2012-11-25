@@ -101,15 +101,19 @@
 
 					switch(count)
 					{
-					case 50:
-						alert("Internet: catch me if you can. *snigger*");
-						break;
-					case 300:
-						alert("Internet: I am your desire to surf the limitless beyond...");
+					case 100:
+						alert("catch me if you can. *snigger*");
 						break;
 					case 500:
-						alert("Internet: I am the negation of your will to cyberworld...");
+						alert("I am your desire to surf the limitless beyond...");
+						break;
+					case 1000:
+						alert("your negated will to cyberworld...");
+					case 1500:
+						alert("give it up, you cannot win.");
 					 	break;
+					case 2000:
+						alert("You lose. Power is mine.");
 					default:
 						break;
 					};
@@ -118,27 +122,22 @@
             		var signY = Math.random() < 0.5 ? -1 : 1;
             		var randomX = Math.random() * 200 * signX;
             		var randomY = Math.random() * 200 * signY;
-            		if(count <= 100) {
+            		if(count <= 500) {
 	            		$(el).transition({ x: randomX, y: randomY }, (100 - count) * 2.5);
-	            	} else if (count <= 500) {
+	            	} else if (count <= 1000) {
 						$(el).css({ translate: [ randomX, randomY ] }).fadeIn('slow');
 	            	}
 	            	count += 1;
 	            });
 
 	            $(el).mouseenter(function(){
-	            	if(count > 500) {
+	            	if(count > 1000) {
 	            		var signX = Math.random() < 0.5 ? -1 : 1;
 	            		var signY = Math.random() < 0.5 ? -1 : 1;
 	            		var randomX = (Math.random() * 180 * signX) +'deg';
 	            		var randomY = (Math.random() * 180 * signY) +'deg';
 	            		$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 5000);
-
-	            		if (count == 505) {
-	            			alert("Internet: You lose.");
-	            		}
 	            	}
-	            	count += 1;
 	            });
 
 	            $(el).mouseout(function(){
@@ -153,7 +152,7 @@
 	</head>
 	<body>
 		<form class="well form-search" style="text-align:center"> <label for=url>Enter a website url that you would like to browse:</label> 
-		    <br/><input type=url id='url' value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
+		    <br/><input type=url id='url' size="35" value="http://" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button>
 		    <br/><br/><br/><br/> ** SOME WEBSITES MIGHT NOT WORK SEAMLESSLY **
 		    <br/> For best results, try: http://www.yahoo.com, http://forbes.com, http://macrumors.com 
 		</form> 
