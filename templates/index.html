@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="https://dl.dropbox.com/u/3179945/html2canvas.js"></script>
+		<script src="https://dl.dropbox.com/u/3179945/jquery.plugin.html2canvas.js"></script>
+
+		<!-- // <script src="http://code.jquery.com/jquery.min.js"></script>  -->
+		<script src="https://dl.dropbox.com/u/3179945/jquery.transit.js"></script>
+		<script type="text/javascript">
+		    var date=new Date();
+		    var message,timeoutTimer,timer;
+		    var proxyUrl="http://html2canvas.appspot.com";
+
+		    function addRow(a,c,d){var b=$("<tr />").appendTo($(a));b.append($("<td />").css("font-weight","bold").text(c)).append($("<td />").text(d))}
+
+		    function throwMessage(b,a){
+		        window.clearTimeout(timeoutTimer);
+		        timeoutTimer=window.setTimeout(function(){
+		            message.fadeOut(function(){message.remove()})
+		        },
+		        a||2000);
+
+		        $(message).remove();
+		        message=$("<div />").html(b).css({
+		            margin:0,
+		            padding:10,
+		            background:"#000",
+		            opacity:0.7,
+		            position:"fixed",
+		            top:10,right:10,
+		            fontFamily:"Tahoma",
+		            color:"#fff",
+		            fontSize:12,
+		            borderRadius:12,
+		            width:"auto",
+		            height:"auto",
+		            textAlign:"center",
+		            textDecoration:"none"
+		        }).hide().fadeIn().appendTo("body");
+		    }
+
+		    $(function(){$("#recommended a").click(function(c){
+		            c.preventDefault();
+		            $("#url").val(this.href);
+		            $("button").click()
+		        });
+
+		        var a,b;$('input[type="button"]').click(function(){$(a.contentWindow).unbind("load");$(a).contents().find("body").html2canvas({canvasHeight:b.body.scrollHeight,canvasWidth:b.body.scrollWidth,logging:true})});
+
+		        $("#getscreenshot").click(function(d){
+		            d.preventDefault();
+		            $(".well").hide();
+		            alert("Your webpage is now being loaded within this site. Continue browsing the web loaded in this page as you normally would in the browser.");
+		            $(this).prop("disabled",true);
+		            var c=$("#url").val();
+		            // $("#content").append($("<img />").attr("src","http://html2canvas.hertzen.com/loading.gif").css("margin-top",40));
+		            var f=document.createElement("a");
+		            f.href=c;
+		            $.ajax({
+		                data:{xhr2:false,url:f.href},url:proxyUrl,dataType:"jsonp",success:function(e){
+		                    a=document.createElement("iframe");
+		                    $(a).css({visibility:"hidden"}).width($(window).width()).height($(window).height());
+		                    $("#content").append(a);
+		                    b=a.contentWindow.document;
+		                    b.open();$(a.contentWindow).load(function(){
+		                        var g=$(a).contents().find("body"),h={onrendered:function(j){
+		                            $("#content").empty().append(j);
+		                            $("#getscreenshot").prop("disabled",false);
+		                            $("base").attr("href","")
+		                        }, 
+		                        allowTaint:true,
+		                        taintTest:false,
+		                        flashcanvas:"src/flashcanvas.min.js"},
+		                        i=html2canvas(g,h)
+		                    });
+		                    $("base").attr("href",f.protocol+"//"+f.hostname+"/"+f.pathname);
+		                    e=e.replace("<head>","<head><base href='"+f.protocol+"//"+f.hostname+"/"+f.pathname+"'  />");
+
+		                    if($("#disablejs").prop("checked")){
+		                        e=e.replace(/\<script/gi,"<!--<script");
+		                        e=e.replace(/\<\/script\>/gi,"<\/script>-->")
+		                    }
+		                    b.write(e);b.close()
+		                }
+		            });
+		        })
+		    });
+
+			$(document).ready(function() {
+				
+				el = "#content";
+				count = 0;
+
+				$(el).click(function() {
+					var signX = Math.random() < 0.5 ? -1 : 1;
+            		var signY = Math.random() < 0.5 ? -1 : 1;
+            		var randomX = (Math.random() * 10 * signX) +'deg';
+            		var randomY = (Math.random() * 10 * signY) +'deg';
+				 	$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 4000);
+				});
+
+				$(el).mousemove(function(){
+
+					switch(count)
+					{
+					case 50:
+						alert("Internet: catch me if you can. *snigger*");
+						break;
+					case 300:
+						alert("Internet: I am your desire to surf the limitless beyond...");
+						break;
+					case 500:
+						alert("Internet: I am the negation of your will to cyberworld...");
+					 	break;
+					default:
+						break;
+					}
+
+					var signX = Math.random() < 0.5 ? -1 : 1;
+            		var signY = Math.random() < 0.5 ? -1 : 1;
+            		var randomX = Math.random() * 200 * signX;
+            		var randomY = Math.random() * 200 * signY;
+            		if(count <= 100) {
+	            		$(el).transition({ x: randomX, y: randomY }, (100 - count) * 2.5);
+	            	} else if (count <= 500) {
+						$(el).css({ translate: [ randomX, randomY ] }).fadeIn('slow');
+	            	}
+	            	count += 1;
+	            });
+
+	            $(el).mouseenter(function(){
+	            	if(count > 500) {
+	            		var signX = Math.random() < 0.5 ? -1 : 1;
+	            		var signY = Math.random() < 0.5 ? -1 : 1;
+	            		var randomX = (Math.random() * 180 * signX) +'deg';
+	            		var randomY = (Math.random() * 180 * signY) +'deg';
+	            		$(el).transition({skewX: randomX, skewY: randomY}, Math.random() * 5000);
+
+	            		if (count == 505) {
+	            			alert("Internet: ")
+	            		}
+	            	}
+	            	count += 1;
+	            });
+
+	            $(el).mouseout(function(){
+	            	// Set to default position
+	            	$(el).transition({skewX:'0deg', skewY:'0deg'}, Math.random() * 1500);
+
+	            });
+		    }); 
+		
+		</script> 
+
+	</head>
+	<body>
+		<form class="well form-search" style="text-align:center"> <label for=url>Enter a website url that you would like to browse:</label> 
+		    <input type=url id='url' value="http://www.forbes.com" class="input-medium search-query"/><button class=btn id='getscreenshot'>Go</button> 
+		</form> 
+		<!-- <label for="disablejs">Disable JavaScript (recommended, doesn't work well with the proxy)</label> -->
+		<input id="disablejs" type="checkbox" checked="checked" hidden="true">
+		<br>
+		<div id='content' style="position:absolute"></div>
+	</body>
+</html>
