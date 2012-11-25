@@ -103,18 +103,24 @@
 					switch(count)
 					{
 					case 100:
-						alert("catch me if you can. *snigger*");
+						$("#snigger").get(0).play()
+						alert("Catch me if you can. *snigger*");
 						break;
 					case 500:
+						$("#beam").get(0).play()
 						alert("I am your desire to surf the limitless beyond...");
 						break;
 					case 1000:
-						alert("your negated will to cyberworld...");
+						$("#negate").get(0).play()
+						alert("Your negated will to cyberworld...");
+						break;
 					case 1200:
-						alert("give it up, you cannot win.");
+						$("#dog").get(0).play()
+						alert("Give it up, you cannot win.");
 					 	break;
 					case 1400:
-						alert("You lose. Power to the internet. We are legion.");
+						$("#evil").get(0).play()
+						alert("You lose. Power to the internet. We are legion. Goodbye.");
 						window.location.href=window.location.href;
 					default:
 						break;
@@ -167,5 +173,30 @@
 		<input id="disablejs" type="checkbox" checked="checked" hidden="true">
 		<br>
 		<div id='content' style="position:absolute"></div>
+
+		<audio id="snigger" controls="controls" hidden="true">
+		  <source src="https://dl.dropbox.com/u/3179945/Chuckle-SoundBible.com-1339500982.wav" type="audio/wav">
+		  Your browser does not support the audio tag.
+		</audio>
+
+		<audio id="evil" controls="controls" hidden="true">
+		  <source src="https://dl.dropbox.com/u/3179945/Evil%20Laugh%20Cackle-SoundBible.com-957382653.wav" type="audio/wav">
+		  Your browser does not support the audio tag.
+		</audio>
+
+		<audio id="negate" controls="controls" hidden="true">
+		  <source src="https://dl.dropbox.com/u/3179945/Slow_Motion_Warp-CouchMango-1259869864.wav" type="audio/wav">
+		  Your browser does not support the audio tag.
+		</audio>
+
+		<audio id="dog" controls="controls" hidden="true">
+		  <source src="https://dl.dropbox.com/u/3179945/Dog%20Bite-SoundBible.com-107030898.wav" type="audio/wav">
+		  Your browser does not support the audio tag.
+		</audio>
+
+		<audio id="beam" controls="controls" hidden="true">
+		  <source src="https://dl.dropbox.com/u/3179945/Beam%20Me%20Up%20Scotty-SoundBible.com-1409529251.wav" type="audio/wav">
+		  Your browser does not support the audio tag.
+		</audio>
 	</body>
 </html>
